@@ -72,9 +72,15 @@ class Recommendation
     public function __construct()
     {
         $this->types = new ArrayCollection();
+        $this->settings = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->modifiedAt = new \DateTime();
     }
+    /**
+     * @var Setting[] Available types from this recommendations
+     * @ORM\OneToMany(targetEntity="Setting", mappedBy="recommendation")
+     */
+    private iterable $settings;
     /**
      * @return \DateTime
      */
@@ -82,8 +88,6 @@ class Recommendation
     {
         return $this->createdAt;
     }
-
-
     /**
      * @return \DateTime
      */
@@ -218,6 +222,14 @@ class Recommendation
     public function getTypes(): iterable|ArrayCollection
     {
         return $this->types;
+    }
+
+    /**
+     * @return Setting[]|iterable
+     */
+    public function getSettings()
+    {
+        return $this->settings;
     }
 
 }

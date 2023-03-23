@@ -26,6 +26,10 @@ class Type
      */
     private string $description;
     /**
+     * @ORM\Column(type="string")
+     */
+    private string $name;
+    /**
      * @ORM\Column(type="integer")
      */
     private int $createdBy;
@@ -136,4 +140,21 @@ class Type
     {
         return $this->modules;
     }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
 }

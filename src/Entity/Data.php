@@ -117,5 +117,4 @@ class Data
     {
         $this->module = $module;
     }
-
 }

@@ -290,6 +290,4 @@ class Recommendation
     {
         $this->temperatureMax = $temperatureMax;
     }
-
-
 }
